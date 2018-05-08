@@ -58,3 +58,8 @@ template = os.path.join(HOME, 'template')
 HOST = '0.0.0.0'
 # 服务端口
 PORT = 8085
+# 图标链接基地址
+MIS_DOMAIN = '127.0.0.1'
+MIS_PORT = 8083
+MIS_STATIC_PATH = '/static/upload/icon/'
+BASE_URL = 'http://' + MIS_DOMAIN + ':' + str(MIS_PORT) + MIS_STATIC_PATH

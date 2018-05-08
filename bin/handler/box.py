@@ -1,5 +1,6 @@
 # coding: utf-8
 import logging
+import config
 
 from house_base.response import success
 from house_base.box_list import BoxList
@@ -14,5 +15,8 @@ class BoxListHandler(BaseHandler):
         data = {'box_list': []}
         box = BoxList.load_all()
         if box:
+            for item in box:
+                icon_name = item['icon']
+                item['icon'] = config.BASE_URL + icon_name
             data['box_list'].extend(box)
         return success(data=data)

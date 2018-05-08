@@ -13,7 +13,7 @@ class TestHouseApiInstrument(unittest.TestCase):
         self.url = ''
         self.send = {}
         self.host = '127.0.0.1'
-        self.port = 8083
+        self.port = 8085
         self.timeout = 2000
 
         # self.headers = {'sessionid': 'ea74f0cb-8f38-4325-88bf-1669314285be'}
@@ -27,7 +27,7 @@ class TestHouseApiInstrument(unittest.TestCase):
         self.client = HttpClient(self.server, client_class=RequestsClient)
 
     # @unittest.skip("skipping")
-    def test_merchant_list(self):
+    def test_box_list(self):
         self.url = '/v1/api/box/list'
         ret = self.client.get(self.url, self.send)
         log.info(ret)
