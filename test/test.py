@@ -26,9 +26,20 @@ class TestHouseApiInstrument(unittest.TestCase):
         ]
         self.client = HttpClient(self.server, client_class=RequestsClient)
 
-    # @unittest.skip("skipping")
+    @unittest.skip("skipping")
     def test_box_list(self):
         self.url = '/v1/api/box/list'
+        ret = self.client.get(self.url, self.send)
+        log.info(ret)
+        respcd = json.loads(ret).get('respcd')
+        self.assertEqual(respcd, '0000')
+
+    # @unittest.skip("skipping")
+    def test_box_info(self):
+        self.url = '/v1/api/box/info'
+        self.send.update({
+            'box_id': 6399172705714754862
+        })
         ret = self.client.get(self.url, self.send)
         log.info(ret)
         respcd = json.loads(ret).get('respcd')

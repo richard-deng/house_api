@@ -7,4 +7,5 @@ from handler import (
 urls = (
     ('^/ping$', ping.Ping),
     ('^/v1/api/box/list', box.BoxListHandler),
+    ('^/v1/api/box/info', box.BoxInfoHandler),
 )
