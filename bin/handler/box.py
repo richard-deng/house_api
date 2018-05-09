@@ -48,8 +48,15 @@ class BoxInfoHandler(BaseHandler):
         data['box_type'] = box_type
         if box_type == define.BOX_TYPE_ORDER:
             order = Order.load_by_box_id(box_id)
+            if order.data:
+                log.info('order data=%s', order.data)
+                order.data['goods_picture'] = config.BASE_URL + order.data['goods_picture']
             data['info'] = order.data if order.data else {}
         else:
             text_info = TextInfo.load_by_box_id(box_id)
+            if text_info.data:
+                log.info('text_info data=%s', text_info.data)
+                for item in text_info.data:
+                    item['icon'] = config.BASE_URL + item['icon']
             data['info'] = text_info.data if text_info.data else []
         return success(data=data)
