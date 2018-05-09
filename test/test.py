@@ -38,7 +38,8 @@ class TestHouseApiInstrument(unittest.TestCase):
     def test_box_info(self):
         self.url = '/v1/api/box/info'
         self.send.update({
-            'box_id': 6399172705714754862
+            # 'box_id': 6399172705714754862
+            'box_id': 6399187464367428911
         })
         ret = self.client.get(self.url, self.send)
         log.info(ret)

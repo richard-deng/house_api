@@ -5,6 +5,8 @@ import config
 from house_base.response import success, error, RESP_CODE
 from house_base.box_list import BoxList
 from house_base.order import Order
+from house_base.text_info import TextInfo
+from house_base.text_detail import TextDetail
 from house_base import define
 from house_base.base_handler import BaseHandler
 from zbase.web.validator import (
@@ -47,5 +49,7 @@ class BoxInfoHandler(BaseHandler):
         if box_type == define.BOX_TYPE_ORDER:
             order = Order.load_by_box_id(box_id)
             data['info'] = order.data if order.data else {}
+        else:
+            text_info = TextInfo.load_by_box_id(box_id)
+            data['info'] = text_info.data if text_info.data else []
         return success(data=data)
-
