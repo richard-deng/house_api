@@ -50,6 +50,7 @@ class BoxInfoHandler(BaseHandler):
             order = Order.load_by_box_id(box_id)
             if order.data:
                 log.info('order data=%s', order.data)
+                order.data['box_id'] = str(order.data['box_id'])
                 order.data['goods_picture'] = config.BASE_URL + order.data['goods_picture']
             data['info'] = order.data if order.data else {}
         else:
@@ -57,6 +58,7 @@ class BoxInfoHandler(BaseHandler):
             if text_info.data:
                 log.info('text_info data=%s', text_info.data)
                 for item in text_info.data:
+                    item['box_id'] = str(item['box_id'])
                     item['icon'] = config.BASE_URL + item['icon']
             data['info'] = text_info.data if text_info.data else []
         return success(data=data)
