@@ -20,7 +20,8 @@ class BoxListHandler(BaseHandler):
 
     def _get_handler(self):
         data = {'box_list': []}
-        box = BoxList.load_all()
+        where = {'available': define.BOX_ENABLE}
+        box = BoxList.load_all(where=where)
         if box:
             for item in box:
                 icon_name = item['icon']
