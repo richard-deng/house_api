@@ -11,17 +11,17 @@ LOGFILE = {
         }
     }
 }
-LOGFILE = 'stdout'
+# LOGFILE = 'stdout'
 
 database = {
     'house_core':{
         'engine': 'pymysql',
-        'passwd': '',
+        'passwd': '123456',
         'charset': 'utf8',
         'db': 'house_core',
         'idle_timeout': 10,
         'host': '127.0.0.1',
-        'user': 'root',
+        'user': 'qf',
         'port': 3306,
         'conn': 3
     },
@@ -58,3 +58,9 @@ template = os.path.join(HOME, 'template')
 HOST = '0.0.0.0'
 # 服务端口
 PORT = 8085
+# 图标链接基地址
+MIS_DOMAIN = '120.27.15.131'
+MIS_PORT = ''
+MIS_STATIC_PATH = '/mis/static/upload/icon/'
+# BASE_URL = 'http://' + MIS_DOMAIN + ':' + str(MIS_PORT) + MIS_STATIC_PATH
+BASE_URL = 'http://' + MIS_DOMAIN + MIS_STATIC_PATH

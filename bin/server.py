@@ -1,21 +1,17 @@
 # -*- coding: utf-8 -*-
-
 import os
 import sys
-import urls
-
-
 HOME = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(os.path.dirname(HOME), 'conf'))
 
 from zbase.base import logger
 from zbase.base import dbpool
-
 from zbase.web import core
 from zbase.web import runner
 from zbase.web import template
 
 import config
+import urls
 
 if config.LOGFILE:
     log = logger.install(config.LOGFILE, when='MIDNIGHT')
