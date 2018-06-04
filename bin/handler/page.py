@@ -14,6 +14,7 @@ log = logging.getLogger()
 class PageTextDetail(core.Handler):
     def GET(self):
         try:
+            content = ''
             params = self.req.input()
             log.debug('PageTextDetail|params=%s', params)
             text_id = params.get('text_id')
