@@ -61,5 +61,7 @@ class BoxInfoHandler(BaseHandler):
                 for item in text_info.data:
                     item['box_id'] = str(item['box_id'])
                     item['icon'] = config.BASE_URL + item['icon']
+                    param_str = 'text_id=%s' % item['text_id']
+                    item['text_detail_url'] = config.TEXT_DETAIL_PREFIX_URL + '?' + param_str
             data['info'] = text_info.data if text_info.data else []
         return success(data=data)

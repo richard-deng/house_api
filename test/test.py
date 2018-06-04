@@ -12,9 +12,10 @@ class TestHouseApiInstrument(unittest.TestCase):
     def setUp(self):
         self.url = ''
         self.send = {}
-        # self.host = '127.0.0.1'
-        self.host = '120.27.15.131'
-        self.port = 80
+        self.host = '127.0.0.1'
+        # self.host = '120.27.15.131'
+        # self.port = 80
+        self.port = 8085
         self.timeout = 2000
 
         # self.headers = {'sessionid': 'ea74f0cb-8f38-4325-88bf-1669314285be'}
@@ -35,17 +36,22 @@ class TestHouseApiInstrument(unittest.TestCase):
         respcd = json.loads(ret).get('respcd')
         self.assertEqual(respcd, '0000')
 
-    # @unittest.skip("skipping")
+    @unittest.skip("skipping")
     def test_box_info(self):
         self.url = '/v1/api/box/info'
         self.send.update({
-            'box_id': 6399853538595397056
-            # 'box_id': 6399853433284812223 
+            'box_id': 6399187464367428911
         })
         ret = self.client.get(self.url, self.send)
         log.info(ret)
         respcd = json.loads(ret).get('respcd')
         self.assertEqual(respcd, '0000')
+
+    # @unittest.skip("skipping")
+    def test_text_detail_page(self):
+        self.url = '/v1/page/text/detail?text_id=6406479690399275982'
+        ret = self.client.get(self.url)
+        log.info(ret)
 
 
 suite = unittest.TestLoader().loadTestsFromTestCase(TestHouseApiInstrument)

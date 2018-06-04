@@ -16,12 +16,12 @@ LOGFILE = {
 database = {
     'house_core':{
         'engine': 'pymysql',
-        'passwd': '123456',
+        'passwd': '',
         'charset': 'utf8',
         'db': 'house_core',
         'idle_timeout': 10,
         'host': '127.0.0.1',
-        'user': 'qf',
+        'user': 'root',
         'port': 3306,
         'conn': 3
     },
@@ -64,3 +64,5 @@ MIS_PORT = ''
 MIS_STATIC_PATH = '/mis/static/upload/icon/'
 # BASE_URL = 'http://' + MIS_DOMAIN + ':' + str(MIS_PORT) + MIS_STATIC_PATH
 BASE_URL = 'http://' + MIS_DOMAIN + MIS_STATIC_PATH
+# 文本详情获取连接前缀
+TEXT_DETAIL_PREFIX_URL = '/v1/page/text/detail'
