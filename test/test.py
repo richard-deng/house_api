@@ -47,7 +47,7 @@ class TestHouseApiInstrument(unittest.TestCase):
 
     # @unittest.skip("skipping")
     def test_text_detail_page(self):
-        self.url = '/v1/api/page/text/detail?text_id=6406479690399275982'
+        self.url = '/v1/api/page/text/detail?text_id=6408215217259503060'
         ret = self.client.get(self.url)
         log.info(ret)
 
