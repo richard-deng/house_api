@@ -1,11 +1,59 @@
-## -*- coding: utf-8 -*-
 <!DOCTYPE html>
-<html lang='zh-CN'>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        ${content}
-    </body>
+<html lang=zh>
+<head>
+  <meta charset=utf-8>
+  <title>消息</title>
+
+  <meta name=format-detection content="telephone=no, email=no">
+  <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+    .v-cloak--block, .v-cloak--inline, .v-cloak--inlineBlock {
+      display: none;
+    }
+    html {
+      width: 100%;
+      height: 100%;
+    }
+    body {
+      /*background: #F7F7F7;*/
+      margin: 0;
+      -webkit-appearance: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+  <script>
+//    var _hmt = _hmt || [];
+//    (function() {
+//      var hm = document.createElement("script");
+//      hm.src = "//hm.baidu.com/hm.js?ded77a0219449e12ff45ec873620a220";
+//      var s = document.getElementsByTagName("script")[0];
+//      s.parentNode.insertBefore(hm, s);
+//    })();
+  </script>
+  <!--<link href=../static/css/message-detail.9592bd70ef28ab23340517e306b3af56.css rel=stylesheet></head>-->
+<link href=/mis/static/css/message-detail.9592bd70ef28ab23340517e306b3af56.css rel=stylesheet></head>
+<body>
+  <div class="content-wrap">
+    <div class="header">
+      <p class="header-title">${content_name}</p>
+      <p class="header-date">${create_time}</p>
+    </div>
+    ${content}
+  </div>
+
+  <!--<script type=text/javascript src=../static/js/lib/commons.72869d8ce9f995fe1466.js></script><script type=text/javascript src=../static/js/message-detail.babe145b6ee89cf6f7d8.js></script></body>-->
+<script type=text/javascript src=/mis/static/js/lib/commons.72869d8ce9f995fe1466.js></script><script type=text/javascript src=/mis/static/js/message-detail.babe145b6ee89cf6f7d8.js></script></body>
+<script>
+  if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function () {
+      FastClick.attach(document.body)
+    }, false)
+  }
+</script>
 </html>
