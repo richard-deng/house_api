@@ -12,5 +12,5 @@ urls = (
 
 
     # 页面
-    ('^/v1/page/text/detail$', page.PageTextDetail),
+    ('^/v1/api/page/text/detail$', page.PageTextDetail),
 )
