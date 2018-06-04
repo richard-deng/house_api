@@ -28,7 +28,7 @@ class PageTextDetail(core.Handler):
                 except Exception:
                     log.warn(traceback.format_exc())
                     content = content_str
-            return self.write(template.render('text_demo.html', content=content))
+            return self.write(template.render('text_demo.html', content=content, content_name='文本', create_time='2018-06-04 16:14:00'))
         except Exception:
             log.warn(traceback.format_exc())
             return self.write(errcode=RESP_CODE.SERVERERR)
