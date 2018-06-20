@@ -12,8 +12,8 @@ class TestHouseApiInstrument(unittest.TestCase):
     def setUp(self):
         self.url = ''
         self.send = {}
-        self.host = 'api.xunchengfangfu.com'
-        self.port = 80
+        self.host = '127.0.0.1'
+        self.port = 8085
         self.timeout = 2000
 
         # self.headers = {'sessionid': 'ea74f0cb-8f38-4325-88bf-1669314285be'}
@@ -34,7 +34,7 @@ class TestHouseApiInstrument(unittest.TestCase):
         respcd = json.loads(ret).get('respcd')
         self.assertEqual(respcd, '0000')
 
-    # @unittest.skip("skipping")
+    @unittest.skip("skipping")
     def test_box_info(self):
         self.url = '/v1/api/box/info'
         self.send.update({
@@ -50,6 +50,17 @@ class TestHouseApiInstrument(unittest.TestCase):
         self.url = '/v1/api/page/text/detail?text_id=6408215217259503060'
         ret = self.client.get(self.url)
         log.info(ret)
+
+    # @unittest.skip("skipping")
+    def test_question_children(self):
+        self.url = '/v1/api/question/children/info'
+        self.send.update({
+            'parent': 1
+        })
+        ret = self.client.get(self.url, self.send)
+        log.info(ret)
+        respcd = json.loads(ret).get('respcd')
+        self.assertEqual(respcd, '0000')
 
 
 suite = unittest.TestLoader().loadTestsFromTestCase(TestHouseApiInstrument)
