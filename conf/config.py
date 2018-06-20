@@ -16,12 +16,12 @@ LOGFILE = {
 database = {
     'house_core':{
         'engine': 'pymysql',
-        'passwd': '123456',
+        'passwd': '',
         'charset': 'utf8',
         'db': 'house_core',
         'idle_timeout': 10,
         'host': '127.0.0.1',
-        'user': 'xuncheng',
+        'user': 'root',
         'port': 3306,
         'conn': 3
     },
