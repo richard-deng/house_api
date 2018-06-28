@@ -12,7 +12,7 @@ urls = (
     ('^/v1/api/box/list', box.BoxListHandler),
     ('^/v1/api/box/info', box.BoxInfoHandler),
     ('^/v1/api/question/children/info', questions.QuestionSingleHandler),
-    ('^/v1/api/rate/info$', rate.RateInfoHandler),
+    ('^/v1/api/rate/lpr/info$', rate.LoanPrimeRateInfoHandler),
 
 
     # 页面

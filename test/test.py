@@ -64,7 +64,7 @@ class TestHouseApiInstrument(unittest.TestCase):
 
     # @unittest.skip("skipping")
     def test_rate_info(self):
-        self.url = '/v1/api/rate/info'
+        self.url = '/v1/api/rate/lpr/info'
         ret = self.client.get(self.url, self.send)
         log.info(ret)
         respcd = json.loads(ret).get('respcd')
