@@ -59,9 +59,8 @@ HOST = '0.0.0.0'
 # 服务端口
 PORT = 8085
 # 图标链接基地址
-MIS_DOMAIN = 'mis.xunchengfangfu.com'
+MIS_DOMAIN = '120.27.15.131'
 MIS_PORT = ''
 MIS_STATIC_PATH = '/mis/static/upload/icon/'
 # BASE_URL = 'http://' + MIS_DOMAIN + ':' + str(MIS_PORT) + MIS_STATIC_PATH
 BASE_URL = 'http://' + MIS_DOMAIN + MIS_STATIC_PATH
-TEXT_DETAIL_PREFIX_URL = '/v1/api/page/text/detail.html'
