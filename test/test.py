@@ -12,8 +12,8 @@ class TestHouseApiInstrument(unittest.TestCase):
     def setUp(self):
         self.url = ''
         self.send = {}
-        self.host = '127.0.0.1'
-        self.port = 8085
+        self.host = 'api.xunchengfangfu.com'
+        self.port = 80
         self.timeout = 2000
 
         # self.headers = {'sessionid': 'ea74f0cb-8f38-4325-88bf-1669314285be'}
