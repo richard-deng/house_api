@@ -68,3 +68,4 @@ BASE_URL = 'http://' + MIS_DOMAIN + MIS_STATIC_PATH
 ACCUMULATION_LOAN = 'accumulation_fund_loan'
 # 商业贷款利率名称
 BUSINESS_LOAN = 'business_loan'
+TEXT_DETAIL_PREFIX_URL = '/v1/api/page/text/detail.html'

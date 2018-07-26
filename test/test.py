@@ -34,11 +34,17 @@ class TestHouseApiInstrument(unittest.TestCase):
         respcd = json.loads(ret).get('respcd')
         self.assertEqual(respcd, '0000')
 
-    @unittest.skip("skipping")
+    # @unittest.skip("skipping")
     def test_box_info(self):
         self.url = '/v1/api/box/info'
         self.send.update({
-            'box_id': 6414765676824684757
+            # 订单
+            # 'box_id': 6399172705714754862
+            # 文本
+            # 'box_id': 6399187464367428911
+            # 分类
+            'box_id': 6427527416620543622
+
         })
         ret = self.client.get(self.url, self.send)
         log.info(ret)
@@ -62,7 +68,7 @@ class TestHouseApiInstrument(unittest.TestCase):
         respcd = json.loads(ret).get('respcd')
         self.assertEqual(respcd, '0000')
 
-    # @unittest.skip("skipping")
+    @unittest.skip("skipping")
     def test_rate_info(self):
         self.url = '/v1/api/rate/lpr/info'
         ret = self.client.get(self.url, self.send)
