@@ -6,6 +6,7 @@ from handler import (
     questions,
     rate,
     notify,
+    weixin,
 )
 
 urls = (
@@ -17,6 +18,10 @@ urls = (
 
     # 微信的异步通知
     ('^/v1/api/weixin/notify$', notify.PrecreateNotify),
+    # 获取微信的openid
+    ('^/v1/api/weixin/openid$', weixin.GenOpenidHandler),
+    # 微信预下单
+    ('^/v1/api/weixin/precreate$', weixin.PrecreateHandler),
 
 
     # 页面

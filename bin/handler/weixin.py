@@ -6,7 +6,7 @@ from house_base.response import success, error, RESP_CODE
 from house_base.weixin import GenOpenid, Precreate
 from house_base.base_handler import BaseHandler
 from zbase.web.validator import (
-    with_validator_self, Field, T_INT
+    with_validator_self, Field, T_INT, T_STR,
 )
 
 log = logging.getLogger()
@@ -24,9 +24,9 @@ class GenOpenidHandler(BaseHandler):
         params = self.validator.data
         js_code = params['js_code']
         g = GenOpenid(config.APPID, config.SECRET, config.MCH_ID, config.API_KEY)
-        openid = g.run(js_code)
+        openid, msg = g.run(js_code)
         if not openid:
-            return error(RESP_CODE.UNKOWNERR)
+            return error(RESP_CODE.UNKOWNERR, respmsg=msg)
         data['openid'] = openid
         return success(data)
 
