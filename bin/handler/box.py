@@ -6,11 +6,10 @@ from house_base.response import success, error, RESP_CODE
 from house_base.box_list import BoxList
 from house_base.order import Order
 from house_base.text_info import TextInfo
-from house_base.text_detail import TextDetail
 from house_base import define
 from house_base.base_handler import BaseHandler
 from zbase.web.validator import (
-    with_validator_self, Field, T_INT, T_STR
+    with_validator_self, Field, T_INT
 )
 
 log = logging.getLogger()
@@ -19,8 +18,11 @@ log = logging.getLogger()
 class BoxListHandler(BaseHandler):
 
     def _get_handler(self):
+        '''
+        默认获取parent = -1的九宫格
+        '''
         data = {'box_list': []}
-        where = {'available': define.BOX_ENABLE}
+        where = {'available': define.BOX_ENABLE, 'parent': -1}
         box = BoxList.load_all(where=where)
         if box:
             for item in box:
@@ -54,7 +56,7 @@ class BoxInfoHandler(BaseHandler):
                 order.data['box_id'] = str(order.data['box_id'])
                 order.data['goods_picture'] = config.BASE_URL + order.data['goods_picture']
             data['info'] = order.data if order.data else {}
-        else:
+        elif box_type == define.BOX_TYPE_TEXT:
             text_info = TextInfo.load_by_box_id(box_id)
             if text_info.data:
                 log.info('text_info data=%s', text_info.data)
@@ -65,4 +67,11 @@ class BoxInfoHandler(BaseHandler):
                     # item['text_detail_url'] = config.TEXT_DETAIL_PREFIX_URL + '?' + param_str
                     item['text_detail_url'] = config.TEXT_DETAIL_PREFIX_URL
             data['info'] = text_info.data if text_info.data else []
+        else:
+            where = {'available': define.BOX_ENABLE, 'parent': box_id}
+            box = BoxList.load_all(where=where)
+            for item in box:
+                icon_name = item['icon']
+                item['icon'] = config.BASE_URL + icon_name
+            data['info'] = box
         return success(data=data)
