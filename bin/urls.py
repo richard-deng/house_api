@@ -5,7 +5,7 @@ from handler import (
     box,
     questions,
     rate,
-    weixin,
+    notify,
 )
 
 urls = (
@@ -16,7 +16,7 @@ urls = (
     ('^/v1/api/rate/lpr/info$', rate.LoanPrimeRateInfoHandler),
 
     # 微信的异步通知
-    ('^/v1/api/weixin/notify$', weixin.PrecreateNotify),
+    ('^/v1/api/weixin/notify$', notify.PrecreateNotify),
 
 
     # 页面
