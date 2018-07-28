@@ -62,13 +62,23 @@ class TestHouseApiInstrument(unittest.TestCase):
         respcd = json.loads(ret).get('respcd')
         self.assertEqual(respcd, '0000')
 
-    # @unittest.skip("skipping")
+    @unittest.skip("skipping")
     def test_rate_info(self):
         self.url = '/v1/api/rate/lpr/info'
         ret = self.client.get(self.url, self.send)
         log.info(ret)
         respcd = json.loads(ret).get('respcd')
         self.assertEqual(respcd, '0000')
+
+    # @unittest.skip("skipping")
+    def test_precreate_notify(self):
+        import requests
+        method = "POST"
+        url = 'http://api.xunchengfangfu.com:80/v1/api/weixin/notify'
+        headers = {'Content-Type': 'text/xml; charset=UTF-8'}
+        req_str = "<xml><out_trade_no>123456</out_trade_no><trade_state>SUCCESS</trade_state></xml>"
+        resp = requests.request(method, url, data=req_str, verify=False, headers=headers)
+        log.info('status_code=%s|content=%s', resp.status_code, resp.content)
 
 
 
