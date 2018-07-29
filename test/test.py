@@ -86,18 +86,19 @@ class TestHouseApiInstrument(unittest.TestCase):
         resp = requests.request(method, url, data=req_str, verify=False, headers=headers)
         log.info('status_code=%s|content=%s', resp.status_code, resp.content)
 
-    @unittest.skip("skipping")
+   #  @unittest.skip("skipping")
     def test_weixin_openid(self):
         self.url = '/v1/api/weixin/openid'
         self.send.update({
-            'js_code': '033JUo4e2xqmsD0fbA1e2EsD4e2JUo4O'
+            # 'js_code': '033JUo4e2xqmsD0fbA1e2EsD4e2JUo4O'
+            'js_code': '0335UKIV1lvgYU0Rz2LV16BEIV15UKIs'
         })
         ret = self.client.get(self.url, self.send)
         log.info(ret)
         respcd = json.loads(ret).get('respcd')
         self.assertEqual(respcd, '0000')
 
-    # @unittest.skip("skipping")
+    @unittest.skip("skipping")
     def test_weixin_precreate(self):
         self.url = '/v1/api/weixin/precreate'
         self.send.update({
