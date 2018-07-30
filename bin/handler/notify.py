@@ -30,3 +30,20 @@ class PrecreateNotify(core.Handler):
         except Exception:
             log.warn(traceback.format_exc())
             return self.write('fail')
+
+
+class RefundNotify(core.Handler):
+
+    def POST(self):
+        try:
+            self.set_headers({'Content-Type': 'text/xml; charset=UTF-8'})
+            params = self.req.postdata()
+            log.info("%s %s params: %s", self.__class__.__name__, 'POST', params)
+            obj = xmltodict.parse(params, 'utf-8')
+            obj = obj['xml']
+            log.info('func=%s|obj=%s', self.__class__.__name__, obj)
+            # 如果成功返回'SUCCESS'
+            return self.write('fail')
+        except Exception:
+            log.warn(traceback.format_exc())
+            return self.write('fail')

@@ -86,11 +86,10 @@ class TestHouseApiInstrument(unittest.TestCase):
         resp = requests.request(method, url, data=req_str, verify=False, headers=headers)
         log.info('status_code=%s|content=%s', resp.status_code, resp.content)
 
-   #  @unittest.skip("skipping")
+    @unittest.skip("skipping")
     def test_weixin_openid(self):
         self.url = '/v1/api/weixin/openid'
         self.send.update({
-            # 'js_code': '033JUo4e2xqmsD0fbA1e2EsD4e2JUo4O'
             'js_code': '0335UKIV1lvgYU0Rz2LV16BEIV15UKIs'
         })
         ret = self.client.get(self.url, self.send)
@@ -104,12 +103,34 @@ class TestHouseApiInstrument(unittest.TestCase):
         self.send.update({
             'openid': 'oOKQM5EhGzdh-1x1krU5VCw-CDnM',
             'txamt': 1,
-            'consumer_name': 'dc',
+            'consumer_name': '李三',
             'consumer_mobile': '18215630018',
-            'order_name': 'test',
-            'order_desc': 'test precreate',
+            'order_name': '商品一',
+            'order_desc': '商品描述',
         })
         ret = self.client.post(self.url, self.send)
+        log.info(ret)
+        respcd = json.loads(ret).get('respcd')
+        self.assertEqual(respcd, '0000')
+
+    @unittest.skip("skipping")
+    def test_weixin_order_query(self):
+        self.url = '/v1/api/weixin/order/query'
+        self.send.update({
+            'syssn': '201807290013408839'
+        })
+        ret = self.client.get(self.url, self.send)
+        log.info(ret)
+        respcd = json.loads(ret).get('respcd')
+        self.assertEqual(respcd, '0000')
+
+    # @unittest.skip("skipping")
+    def test_weixin_trade_list(self):
+        self.url = '/v1/api/weixin/trade/list'
+        self.send.update({
+            'openid': 'oOKQM5EhGzdh-1x1krU5VCw-CDnM'
+        })
+        ret = self.client.get(self.url, self.send)
         log.info(ret)
         respcd = json.loads(ret).get('respcd')
         self.assertEqual(respcd, '0000')
