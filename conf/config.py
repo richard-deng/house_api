@@ -16,14 +16,14 @@ LOGFILE = {
 database = {
     'house_core':{
         'engine': 'pymysql',
-        'passwd': '',
+        'passwd': '123456',
         'charset': 'utf8',
         'db': 'house_core',
         'idle_timeout': 10,
         'host': '127.0.0.1',
-        'user': 'root',
+        'user': 'xuncheng',
         'port': 3306,
-        'conn': 3
+        'conn': 6
     },
 
 }
@@ -59,12 +59,23 @@ HOST = '0.0.0.0'
 # 服务端口
 PORT = 8085
 # 图标链接基地址
-MIS_DOMAIN = '120.27.15.131'
+MIS_DOMAIN = 'mis.xunchengfangfu.com'
 MIS_PORT = ''
 MIS_STATIC_PATH = '/mis/static/upload/icon/'
 # BASE_URL = 'http://' + MIS_DOMAIN + ':' + str(MIS_PORT) + MIS_STATIC_PATH
 BASE_URL = 'http://' + MIS_DOMAIN + MIS_STATIC_PATH
+TEXT_DETAIL_PREFIX_URL = '/v1/api/page/text/detail.html'
 # 个人公积金贷款利率名称
 ACCUMULATION_LOAN = 'accumulation_fund_loan'
 # 商业贷款利率名称
 BUSINESS_LOAN = 'business_loan'
+TEXT_DETAIL_PREFIX_URL = '/v1/api/page/text/detail.html'
+# 支付参数
+API_KEY = ''
+APPID = ''
+MCH_ID = ''
+SECRET = ''
+# 协议文件
+AGREEMENT = '/home/xunchengfangfu/house/house_mis/data/agreement.html'
+# 滚动文字文案
+BANNER_TEXT = '/home/xunchengfangfu/house/house_mis/data/banner.txt'
