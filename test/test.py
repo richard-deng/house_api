@@ -57,11 +57,12 @@ class TestHouseApiInstrument(unittest.TestCase):
         ret = self.client.get(self.url)
         log.info(ret)
 
-    @unittest.skip("skipping")
+    # @unittest.skip("skipping")
     def test_question_children(self):
         self.url = '/v1/api/question/children/info'
         self.send.update({
-            'parent': 1
+            # 'parent': -1
+            'parent': -1
         })
         ret = self.client.get(self.url, self.send)
         log.info(ret)
@@ -117,19 +118,43 @@ class TestHouseApiInstrument(unittest.TestCase):
     def test_weixin_order_query(self):
         self.url = '/v1/api/weixin/order/query'
         self.send.update({
-            'syssn': '201807290013408839'
+            'syssn': '201807310013408870'
         })
         ret = self.client.get(self.url, self.send)
         log.info(ret)
         respcd = json.loads(ret).get('respcd')
         self.assertEqual(respcd, '0000')
 
-    # @unittest.skip("skipping")
+    @unittest.skip("skipping")
     def test_weixin_trade_list(self):
         self.url = '/v1/api/weixin/trade/list'
         self.send.update({
             'openid': 'oOKQM5EhGzdh-1x1krU5VCw-CDnM'
         })
+        ret = self.client.get(self.url, self.send)
+        log.info(ret)
+        respcd = json.loads(ret).get('respcd')
+        self.assertEqual(respcd, '0000')
+
+    @unittest.skip("skipping")
+    def test_agreement(self):
+        self.url = '/v1/api/agreement/content'
+        ret = self.client.get(self.url, self.send)
+        log.info(ret)
+        respcd = json.loads(ret).get('respcd')
+        self.assertEqual(respcd, '0000')
+
+    @unittest.skip("skipping")
+    def test_banner(self):
+        self.url = '/v1/api/banner/content'
+        ret = self.client.get(self.url, self.send)
+        log.info(ret)
+        respcd = json.loads(ret).get('respcd')
+        self.assertEqual(respcd, '0000')
+
+    @unittest.skip("skipping")
+    def test_carousel_list(self):
+        self.url = '/v1/api/carousel/list'
         ret = self.client.get(self.url, self.send)
         log.info(ret)
         respcd = json.loads(ret).get('respcd')

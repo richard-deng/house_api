@@ -1,4 +1,5 @@
 # coding: utf-8
+import base64
 import logging
 import config
 
@@ -25,5 +26,11 @@ class QuestionSingleHandler(BaseHandler):
         params = self.validator.data
         parent = params.get('parent')
         ret = Questions.load_by_parent_single(parent)
+        if ret:
+            for record in ret:
+                if not record['content']:
+                    continue
+                content = base64.b64decode(record['content'])
+                record['content'] = content
         data['children'] = ret if ret else []
         return success(data=data)
