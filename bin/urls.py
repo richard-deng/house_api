@@ -7,6 +7,9 @@ from handler import (
     rate,
     notify,
     weixin,
+    agreement,
+    banner,
+    carousel,
 )
 
 urls = (
@@ -30,6 +33,13 @@ urls = (
     # 流水查询
     ('^/v1/api/weixin/trade/list$', weixin.TradeListHandler),
 
+
+    # 协议
+    ('^/v1/api/agreement/content$', agreement.AgreementHandler),
+    # 横幅
+    ('^/v1/api/banner/content$', banner.BannerHandler),
+    # 轮播
+    ('^/v1/api/carousel/list$', carousel.CarouselHandler),
 
     # 页面
     ('^/v1/api/page/text/detail.html$', page.PageTextDetail),
