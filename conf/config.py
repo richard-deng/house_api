@@ -66,9 +66,9 @@ MIS_STATIC_PATH = '/mis/static/upload/icon/'
 BASE_URL = 'http://' + MIS_DOMAIN + MIS_STATIC_PATH
 TEXT_DETAIL_PREFIX_URL = '/v1/api/page/text/detail.html'
 # 个人公积金贷款利率名称
-ACCUMULATION_LOAN = 'accumulation_fund_loan'
+ACCUMULATION_LOAN = u'公积金贷款利率'
 # 商业贷款利率名称
-BUSINESS_LOAN = 'business_loan'
+BUSINESS_LOAN = u'商业贷款利率'
 TEXT_DETAIL_PREFIX_URL = '/v1/api/page/text/detail.html'
 # 支付参数
 API_KEY = ''
@@ -76,6 +76,6 @@ APPID = ''
 MCH_ID = ''
 SECRET = ''
 # 协议文件
-AGREEMENT = '/home/xunchengfangfu/house/house_mis/data/agreement.html'
+AGREEMENT = '/home/xunchengfangfu/house/house_mis_v2/data/agreement.html'
 # 滚动文字文案
-BANNER_TEXT = '/home/xunchengfangfu/house/house_mis/data/banner.txt'
+BANNER_TEXT = '/home/xunchengfangfu/house/house_mis_v2/data/banner.txt'
