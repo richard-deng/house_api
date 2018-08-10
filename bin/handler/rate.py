@@ -20,8 +20,6 @@ class LoanPrimeRateInfoHandler(BaseHandler):
         log.info('class=LoanPrimeRateInfoHandler|rate=%s', rate)
         if not rate:
             return error(RESP_CODE.DATAERR)
-        if config.ACCUMULATION_LOAN not in rate.keys() or config.BUSINESS_LOAN not in rate.keys():
-            return error(RESP_CODE.DATAERR)
         data['accumulation_fund_loan_rate'] = rate.get(config.ACCUMULATION_LOAN).get('rate')
         data['business_loan_rate'] = rate.get(config.BUSINESS_LOAN).get('rate')
         return success(data=data)
