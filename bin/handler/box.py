@@ -1,6 +1,7 @@
 # coding: utf-8
 import logging
 import config
+import urllib
 
 from house_base.response import success, error, RESP_CODE
 from house_base.box_list import BoxList
@@ -66,6 +67,11 @@ class BoxInfoHandler(BaseHandler):
                     # param_str = 'text_id=%s' % item['text_id']
                     # item['text_detail_url'] = config.TEXT_DETAIL_PREFIX_URL + '?' + param_str
                     item['text_detail_url'] = config.TEXT_DETAIL_PREFIX_URL
+                    save_type = item['save_type']
+                    name = item['name']
+                    if save_type == define.SAVE_TYPE_FILE:
+                        # item['file_url'] = config.DOWNLOAD_FILE_PREFIX + name
+                        item['file_url'] = config.DOWNLOAD_FILE_PREFIX + urllib.quote(name.encode('utf-8'))
             data['info'] = text_info.data if text_info.data else []
         else:
             where = {'available': define.BOX_ENABLE, 'parent': box_id}
