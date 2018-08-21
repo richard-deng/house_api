@@ -40,7 +40,6 @@ urls = (
     ('^/v1/api/banner/content$', banner.BannerHandler),
     # 轮播
     ('^/v1/api/carousel/list$', carousel.CarouselHandler),
-
     # 页面
     ('^/v1/api/page/text/detail.html$', page.PageTextDetail),
 )

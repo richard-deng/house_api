@@ -28,9 +28,21 @@ class QuestionSingleHandler(BaseHandler):
         ret = Questions.load_by_parent_single(parent)
         if ret:
             for record in ret:
+                save_type = record['save_type']
+                category = record['category']
+                leaf_node = record['leaf_node']
+
+                if category == define.ANSWER and save_type == define.ANSWER_SAVE_TYPE_TXT and leaf_node:
+                    name = record['name']
+                    log.debug("original name=%s", name)
+                    record['name'] = name.replace(' ', '&ensp;')
+                    log.debug("trans name=%s", record['name'])
+
                 if not record['content']:
                     continue
                 content = base64.b64decode(record['content'])
                 record['content'] = content
+
+
         data['children'] = ret if ret else []
         return success(data=data)
