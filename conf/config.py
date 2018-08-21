@@ -71,10 +71,10 @@ ACCUMULATION_LOAN = u'公积金贷款利率'
 BUSINESS_LOAN = u'商业贷款利率'
 TEXT_DETAIL_PREFIX_URL = '/v1/api/page/text/detail.html'
 # 支付参数
-API_KEY = 'bd0da4b891fb51e562a02fb46f729c65'
-APPID = 'wxc664f270979d8d6c'
-MCH_ID = '1508140221'
-SECRET = 'fe4aed51980e99b55ec19774faddcd3c'
+API_KEY = ''
+APPID = ''
+MCH_ID = ''
+SECRET = ''
 # 协议文件
 AGREEMENT = '/home/xunchengfangfu/house/house_mis_v2/data/agreement.html'
 # 滚动文字文案
